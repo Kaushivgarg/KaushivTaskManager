@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="/images/logo.png">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List by Kaushiv</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="illustration-left"></div>
+        <div class="illustration-right"></div>
+        <div class="content">
+            <!-- Your content elements go here -->
+            <h1>Todo List</h1>
+            <form id="todoForm" class="addbar" style="display:flex;flex-direction: row;align-items: end; justify-content: end;">
+                <div style="display:flex;flex-direction: column;flex-grow:1;padding: 10px 15px;gap: 10px;">
+                <label>
+                    Task
+                </label>
+
+                <input type="text" id="taskInput" name="taskInput" placeholder="Enter a task" required>
+            </div>
+            <div style="display:flex;flex-direction: column;flex-grow:1;padding: 10px 15px;gap: 10px">
+                <label>
+                    TaskCategory
+                </label>
+                <select id="categorySelect" name="categorySelect">
+                    <option value="work">Work</option>
+                    <option value="personal" selected>Personal</option>
+                    <option value="shopping">Shopping</option>
+                </select>
+                </div>
+                <div style="display:flex;flex-direction: column;flex-grow:1;padding: 10px 15px;gap: 10px">
+                    <label>
+                        TaskType
+                    </label>
+                <select id="prioritySelect" name="prioritySelect">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                </div>
+                <button type="submit">Add Task</button>
+            </form>
+            <div class="controls" style="display:flex;flex-direction: row;align-items: end; justify-content: end;">
+                <div style="display:flex;flex-direction: column;flex-grow:1;padding: 10px 15px;gap: 10px">
+                    <label>
+                        Search
+                    </label>
+                <input type="text" id="searchInput" placeholder="Search tasks" onkeyup="loadTasks()" />
+                </div>
+                <div style="display:flex;flex-direction: column;flex-grow:1;padding: 10px 15px;gap: 10px">
+                    <label>
+                        Sort by:
+                    </label>
+                <select id="sortSelect" onchange="loadTasks()">
+                    <option value="priority">Priority</option>
+                    <option value="date">Date</option>
+                    
+                    <option value="category">Category</option>
+                </select>
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="taskTable">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th style="width: 40%;">Task</th>
+                            <th>Due Time</th>
+                            <th>Time Left</th>
+                            <th>Category</th> <!-- New header -->
+                            <th>Priority</th> <!-- New header -->
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskList"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

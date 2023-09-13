@@ -1,0 +1,205 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient( to right, #E3F2FD, #ECEFF1);
+}
+h1 {
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.addbar,
+.controls,
+.table-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    background-color: #64c8c1;
+    border-radius: 10px;
+}
+
+/* Form and Controls Styles */
+
+#todoForm,
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+#categorySelect,
+#prioritySelect,
+#sortSelect,
+#taskInput,#searchInput {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    flex: 1;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #ba9d35;
+    color: #0a0909;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #e6cb46;
+}
+button:active {
+    transform: scale(0.95);
+}
+
+/* Table Styles and Responsiveness */
+
+.table-container {
+    overflow-x: auto; /* Enables horizontal scrolling */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.addbar, .controls, .table-container {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+button, input, select {
+    transition: all 0.3s ease;
+}
+
+.background-container {
+    position: relative;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    height:100%;
+}
+
+.illustration-left,
+.illustration-right {
+    position: absolute;
+    top: 55%;
+    width: 30%; /* Half of the width for each side */
+    height: 40%;
+    background-size: cover; /* Adjust to your preference */
+    background-repeat: no-repeat;
+}
+
+.illustration-left {
+    left: 1%;
+    background-image: url('/images/undraw_projections_re_ulc6.svg');
+}
+
+.illustration-right {
+    right: 1%;
+    background-image: url('/images/undraw_team_up_re_84ok.svg');
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Make sure content is displayed in front of illustrations */
+    padding: 20px;
+}
+
+/* Your existing CSS for form, controls, table, etc. */
+
+
+@media screen and (max-width: 600px) {
+    #todoForm, .controls {
+        flex-direction: column;
+    }
+
+    #taskInput, #categorySelect, #prioritySelect, #sortSelect, button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+
+@media screen and (max-width: 768) {
+    .addbar,.controls{
+        flex-direction: column;
+    }
+}
+
+/* Hide the default checkbox */
+.hidden-checkbox {
+    display: none;
+}
+
+/* Style for the custom icon container */
+.custom-checkbox .icon {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    border: 2px solid #555;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Red cross for the unchecked state */
+.custom-checkbox .icon:before, .custom-checkbox .icon:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 14px;
+    width: 2px;
+    background-color: red;
+    transform-origin: center;
+}
+.custom-checkbox .icon:before {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+.custom-checkbox .icon:after {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+
+/* Green checkmark for the checked state */
+.custom-checkbox .hidden-checkbox:checked + .icon:before, 
+.custom-checkbox .hidden-checkbox:checked + .icon:after {
+    background-color: green;
+    width: 5px;
+    height: 10px;
+}
+.custom-checkbox .hidden-checkbox:checked + .icon:before {
+    height: 12px;
+    transform: translateX(-50%) translateY(-50%) rotate(20deg);
+}
+.custom-checkbox .hidden-checkbox:checked + .icon:after {
+    transform: translateX(-20%) translateY(-20%) rotate(-50deg);
+}
+
+/* Increase size when checked */
+.custom-checkbox .hidden-checkbox:checked + .icon {
+    transform: scale(1.2);
+}
